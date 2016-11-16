@@ -19,7 +19,7 @@ class NotesController extends Controller
     }
 
     /**
-     * Remove Tag
+     * Remove tag from note
      *
      * @param $note_id integer
      * @param $tag_id integer
@@ -46,7 +46,7 @@ class NotesController extends Controller
     }
 
     /**
-     * Add Tag
+     * Add Tag to the note
      *
      * @param $request Request
      * @param $id integer note id
