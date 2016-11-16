@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 class SectionOneCollectionController extends Controller
 {
+    /**
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         /**
