@@ -6,10 +6,10 @@
         <form action="{{route('github.postlogin')}}" method = "POST">
             {{csrf_field()}}
             <b>Login : </b><br>
-            <input type="text" name = "login" value = "LaravelTester">
+            <input type="text" name = "login" value = "<?php env('GITHUB_USER'); ?>">
             <br>
             <b>Password : </b><br>
-            <input type="password" name = "password" value = "123123a">
+            <input type="password" name = "password" value = "<?php env('GITHUB_PASSWORD'); ?>">
             <br>
             <input type="submit" value = "log in">
         </form>
