@@ -86,7 +86,7 @@ class GithubService
     private function getClient()
     {
         return new Client([
-            'base_uri' => 'https://api.github.com'
+            'base_uri' => 'https://api.github.com/user'
         ]);
     }
 
