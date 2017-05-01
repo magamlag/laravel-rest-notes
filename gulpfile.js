@@ -15,5 +15,13 @@ require('laravel-elixir-webpack-official');
 
 elixir(function(mix) {
     mix.sass('app.scss')
-       .webpack('home.js');
+       .webpack('main.js');
+});
+
+/* Combine and minify styles for GitHub User Dashboard */
+elixir(function(mix) {
+	mix.styles([
+		'normalize.css',
+		'login-form.css'
+	], 'public/css/github.css');
 });
