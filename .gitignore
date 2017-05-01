@@ -7,3 +7,5 @@ Homestead.yaml
 .env
 
 tests/_output/*
+tests/_envs/
+NOTES.MD
