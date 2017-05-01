@@ -72,5 +72,7 @@ class IndexController extends Controller
     public function loginOut(Request $request)
     {
         $request->session()->forget(self::$session_github);
+
+        return redirect()->route('github.index');
     }
 }

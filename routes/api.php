@@ -24,3 +24,30 @@ Route::delete('/notes/{note_id}/remove_tag/{tag_id}',[
     'as'    =>  'api.notes.remove_tag',
     'uses'  =>  'NotesController@removeTag'
 ]);
+
+Route::group(['prefix'  =>  '/github','namespace' =>  'Github'],function(){
+    Route::get('/',[
+        'as'    =>  'github.index',
+        'uses'  =>  'IndexController@index'
+    ]);
+
+    Route::post('/user_area',[
+        'as'    =>  'github.postlogin',
+        'uses'  =>  'IndexController@checkUser'
+    ]);
+
+    Route::get('/user_area',[
+        'as'    =>  'github.user_area',
+        'uses'  =>  'UserAreaController@area'
+    ]);
+
+    Route::get('/user_area/repos',[
+        'as'    =>  'github.user_area.repos',
+        'uses'  =>  'UserAreaController@repositories'
+    ]);
+
+    Route::get('/user_area/issues',[
+        'as'    =>  'github.user_area.issues',
+        'uses'  =>  'UserAreaController@issues'
+    ]);
+});
