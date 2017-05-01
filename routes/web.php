@@ -20,7 +20,7 @@ Route::get('/section/1/collection',[
     'as'    =>  'section.one.collection'
 ]);
 
-Route::group(['prefix'  =>  '/section/2/github','namespace' =>  'Github'],function(){
+Route::group(['prefix'  =>  '/github','namespace' =>  'Github'],function(){
     Route::get('/',[
         'as'    =>  'github.index',
         'uses'  =>  'IndexController@index'
@@ -45,6 +45,12 @@ Route::group(['prefix'  =>  '/section/2/github','namespace' =>  'Github'],functi
         'as'    =>  'github.user_area.issues',
         'uses'  =>  'UserAreaController@issues'
     ]);
+
+    Route::get('/login_out',[
+        'as'    => 'github.login_out',
+        'uses'  => 'IndexController@loginOut'
+    ]);
+
 });
 
 Route::get('/test',function () {

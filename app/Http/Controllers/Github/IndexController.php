@@ -13,18 +13,30 @@ class IndexController extends Controller
      * @var GithubService
      */
     private $service;
-    
+    private static $session_github = 'github_credentials';
+
     public function __construct(GithubService $service)
     {
         $this->service = $service;
     }
-    
 
+    /**
+     * Show start page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('github.index');
     }
-    
+
+    /**
+     * Check if user logged in
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
     public function checkUser(Request $request)
     {
         $this->validate($request,[
@@ -34,14 +46,31 @@ class IndexController extends Controller
 
         $check = $this->service->checkAuth($request->login,$request->password);
 
+
         if ($check['success'] == false) {
             return redirect()->back();
         }
 
-        Session::put('github_credentials',json_encode(
+        Session::put(self::$session_github,json_encode(
             [$request->login,$request->password]
         ));
 
+        if ($request->ajax()) {
+            $data['username'] = 'UserBoom';
+            return response()->json([
+                'data' => $data
+            ]);
+        }
         return redirect()->route('github.user_area');
+    }
+
+    /**
+     * Log out user from Github Dashboard
+     *
+     * @param Request $request
+     */
+    public function loginOut(Request $request)
+    {
+        $request->session()->forget(self::$session_github);
     }
 }
