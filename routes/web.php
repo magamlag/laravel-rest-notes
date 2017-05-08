@@ -26,6 +26,11 @@ Route::group(['prefix'  =>  '/github','namespace' =>  'Github'],function(){
         'uses'  =>  'IndexController@index'
     ]);
 
+    Route::get('/login', [
+       'as' => 'github.login',
+        'uses'=> 'IndexController@logIn'
+    ]);
+
     Route::post('/',[
         'as'    =>  'github.postlogin',
         'uses'  =>  'IndexController@checkUser'
