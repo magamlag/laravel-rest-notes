@@ -25,9 +25,9 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getSignIn()
+    public function logIn()
     {
-        return view('github.signin');
+        return view('github.login');
     }
 
     /**
