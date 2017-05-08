@@ -38,15 +38,18 @@ class UserAreaController extends Controller
 
     public function area()
     {
-        return view('github.area');
+        return view('github.dashboard')->withRepos($this->getRepositories());
     }
 
     public function repositories()
     {
-        $data = $this->service->getRepositories();
-        $repos = json_decode($data->getContents());
+        return view('github.repos')->withRepos($this->getRepositories());
+    }
 
-        return view('github.repos')->withRepos($repos);
+    public function getRepositories()
+    {
+        $data = $this->service->getRepositories();
+        return json_decode($data->getContents());
     }
     
     public function issues()
