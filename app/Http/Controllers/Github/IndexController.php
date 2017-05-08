@@ -21,7 +21,17 @@ class IndexController extends Controller
     }
 
     /**
-     * Show start page
+     * Show sign page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getSignIn()
+    {
+        return view('github.signin');
+    }
+
+    /**
+     * Show home page
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
