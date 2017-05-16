@@ -159,7 +159,6 @@ body {
 /* Area */
 #area .tab-content {
 	color: white;
-	/*background-color: #428bca;*/
 	padding: 5px 15px;
 }
 
@@ -186,18 +185,27 @@ body {
 	background-color: #ffffff;
 	margin-bottom: 25px;
 	padding: 15px;
-	height: 200px;
+	height: 100%;
 }
 
 #area .repo-item-text{
 	color: #000000;
 }
 
-.row.same-size{
+.repo-col {
+}
+
+#area .same-size{
 	display: flex;
 	display: -webkit-flex;
 	flex-wrap: wrap;
 }
+
+.row > [class*='col-'] {
+	display: flex;
+	flex-direction: column;
+}
+
 #area .stars {
 	color: gold;
 }
